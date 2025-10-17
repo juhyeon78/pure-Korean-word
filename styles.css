@@ -385,6 +385,7 @@ footer {
     .record-word::before { content: '단어: '; }
     .record-curious::before { content: '궁금한 의미: '; }
     .record-preference::before { content: '원하는 기능: '; }
+     .record-preference::before { content: '날짜: '; }
 
     .record-curious, .record-preference {
         white-space: normal;
