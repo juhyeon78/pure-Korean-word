@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap');
+
+:root {
+    --mint-blue: #5DADE2;
+    --deep-teal: #45B7D1;
+    --soft-green: #76D7C4;
+    --sky-mint: #AED6F1;
+    --sage-green: #A9DFBF;
+    --light-cream: #F0F8F5;
+    --white: #FFFFFF;
+    --text-dark: #2C3E50;
+    --text-light: #5D6D7E;
+    --shadow: rgba(93, 173, 226, 0.15);
+    --border: #D1F2EB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #E8F8F5 0%, #D1F2EB 50%, #A9DFBF 100%);
+    color: var(--text-dark);
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header h1 {
+    color: var(--deep-teal);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(69, 183, 209, 0.2);
+}
+
+header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+#record-form {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px var(--shadow);
+    margin-bottom: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group {
+    margin-bottom: 35px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--deep-teal);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* 객관식 버튼 스타일 (라디오) */
+.option-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.option-selector input[type="radio"] {
+    display: none;
+}
+
+.option-selector label {
+    padding: 14px 24px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: var(--text-light);
+    box-shadow: 0 2px 8px rgba(93, 173, 226, 0.08);
+}
+
+.option-selector label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(93, 173, 226, 0.2);
+    border-color: var(--mint-blue);
+}
+
+.option-selector input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, var(--mint-blue), var(--soft-green));
+    color: white;
+    border-color: var(--mint-blue);
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(93, 173, 226, 0.3);
+}
+
+/* 체크박스 스타일 (복수선택) */
+.checkbox-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.checkbox-selector input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-selector label {
+    padding: 14px 24px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: var(--text-light);
+    box-shadow: 0 2px 8px rgba(93, 173, 226, 0.08);
+}
+
+.checkbox-selector label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(93, 173, 226, 0.2);
+    border-color: var(--mint-blue);
+}
+
+.checkbox-selector input[type="checkbox"]:checked + label {
+    background: linear-gradient(135deg, var(--soft-green), var(--sage-green));
+    color: white;
+    border-color: var(--soft-green);
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(118, 215, 196, 0.3);
+}
+
+/* 주관식 입력 필드 */
+input[type="text"] {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--mint-blue);
+    box-shadow: 0 0 0 4px rgba(93, 173, 226, 0.1);
+}
+
+/* 제출 버튼 */
+button[type="submit"] {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--mint-blue), var(--deep-teal));
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 25px rgba(93, 173, 226, 0.3);
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(93, 173, 226, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: translateY(-1px);
+}
+
+/* 기록 섹션 */
+.records-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.section-header h2 {
+    color: var(--deep-teal);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+#export-excel {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--soft-green), var(--sage-green));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(118, 215, 196, 0.3);
+}
+
+#export-excel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(118, 215, 196, 0.4);
+}
+
+/* 기록 목록 */
+.records-list-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px var(--shadow);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.records-header, .record-row {
+    display: grid;
+    grid-template-columns: 100px 140px 160px 1.2fr 1.8fr 110px;
+    gap: 20px;
+    padding: 20px 30px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.records-header {
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--sky-mint), var(--sage-green));
+    color: var(--deep-teal);
+    border-bottom: 2px solid var(--mint-blue);
+    font-size: 0.95rem;
+}
+
+.record-row:last-child {
+    border-bottom: none;
+}
+
+.record-row:hover {
+    background: linear-gradient(135deg, rgba(93, 173, 226, 0.05), rgba(118, 215, 196, 0.05));
+    transition: all 0.3s ease;
+}
+
+.record-row > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 기록 내용 스타일 */
+.record-feeling {
+    font-weight: 600;
+    color: var(--mint-blue);
+}
+
+.record-know {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.record-word {
+    color: var(--soft-green);
+    font-weight: 600;
+}
+
+.record-curious {
+    font-weight: 600;
+    color: var(--deep-teal);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-preference {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-date {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 2px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 300;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #record-form {
+        padding: 25px;
+    }
+
+    .records-header {
+        display: none;
+    }
+
+    .records-list-container {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .record-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        border: 2px solid var(--border);
+        box-shadow: 0 4px 20px var(--shadow);
+        background: white;
+        padding: 20px;
+    }
+
+    .record-row > div::before {
+        font-weight: 700;
+        margin-right: 10px;
+        color: var(--mint-blue);
+    }
+
+    .record-feeling::before { content: '느낌: '; }
+    .record-know::before { content: '아는 단어: '; }
+    .record-word::before { content: '단어: '; }
+    .record-curious::before { content: '궁금한 의미: '; }
+    .record-preference::before { content: '원하는 기능: '; }
+
+    .record-curious, .record-preference {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: initial;
+    }
+
+    .record-date {
+        text-align: left;
+    }
+}

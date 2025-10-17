@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>순우리말 사전</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌿 순우리말 사전</h1>
+            <p>우리의 아름다운 말, 함께 나누는 이야기</p>
+        </header>
+        <main>
+            <form id="record-form">
+                <!-- 01번: 객관식 버튼 -->
+                <div class="form-group">
+                    <label>01. 순우리말 하면 가장 먼저 떠오르는 느낌은 무엇인가요?</label>
+                    <div class="option-selector">
+                        <input type="radio" id="feeling-good" name="feeling" value="좋음" required>
+                        <label for="feeling-good">좋음 ✨</label>
+                        <input type="radio" id="feeling-normal" name="feeling" value="보통">
+                        <label for="feeling-normal">보통 😊</label>
+                        <input type="radio" id="feeling-bad" name="feeling" value="별로">
+                        <label for="feeling-bad">별로 🤔</label>
+                    </div>
+                </div>
+
+                <!-- 02번: 객관식 버튼 -->
+                <div class="form-group">
+                    <label>02. 평소에 알고 있는 순우리말이 있나요?</label>
+                    <div class="option-selector">
+                        <input type="radio" id="know-yes" name="know" value="있다" required>
+                        <label for="know-yes">있다 📚</label>
+                        <input type="radio" id="know-no" name="know" value="없다">
+                        <label for="know-no">없다 🤷</label>
+                    </div>
+                </div>
+
+                <!-- 2-1번: 주관식 -->
+                <div class="form-group">
+                    <label for="word">2-1. 있다고 이야기하신 경우 어떤 단어를 알고 계신가요?</label>
+                    <input type="text" id="word" name="word">
+                </div>
+
+                <!-- 03번: 주관식 -->
+                <div class="form-group">
+                    <label for="curious">03. 혹시 '이런 뜻을 가진 순우리말이 있을까?' 하고 궁금했던 의미의 단어가 있나요?</label>
+                    <input type="text" id="curious" name="curious" placeholder="예: 반짝이는 모양, 그리워하는 감정 등" required>
+                </div>
+
+                <!-- 04번: 복수선택 객관식 (2개 선택) -->
+                <div class="form-group">
+                    <label>04. 만약 '순우리말 사전'이 있다면, 어떤 방식으로 정보를 얻고 싶으신가요?<br>
+                    <span style="font-size: 0.9rem; color: #5D6D7E;">(아래 기능 중 가장 사용하고 싶은 것 2개만 선택해주세요)</span></label>
+                    <div class="checkbox-selector">
+                        <input type="checkbox" id="pref-story" name="preference" value="단어의 유래나 재미있는 이야기">
+                        <label for="pref-story">단어의 유래나 재미있는 이야기 📖</label>
+                        
+                        <input type="checkbox" id="pref-image" name="preference" value="단어와 어울리는 이미지/일러스트와 함께 보기">
+                        <label for="pref-image">이미지/일러스트와 함께 보기 🎨</label>
+                        
+                        <input type="checkbox" id="pref-daily" name="preference" value="하루에 한 단어씩 알려주는">
+                        <label for="pref-daily">하루에 한 단어씩 알려주는 📅</label>
+                        
+                        <input type="checkbox" id="pref-theme" name="preference" value="주제별 단어 모음">
+                        <label for="pref-theme">주제별 단어 모음 📚</label>
+                    </div>
+                    <p id="checkbox-error" style="color: #E74C3C; font-size: 0.9rem; margin-top: 8px; display: none;">⚠️ 정확히 2개를 선택해주세요!</p>
+                </div>
+
+                <button type="submit">소중한 의견 담기 🌱</button>
+            </form>
+
+            <section class="records-section">
+                <div class="section-header">
+                    <h2>🍃 모두의 이야기</h2>
+                    <button id="export-excel">엑셀로 저장하기</button>
+                </div>
+                <div class="records-list-container">
+                    <div class="records-header">
+                        <div>느낌</div>
+                        <div>아는 단어 여부</div>
+                        <div>아는 단어</div>
+                        <div>궁금한 의미</div>
+                        <div>원하는 기능</div>
+                    </div>
+                    <div id="records-container">
+                        <!-- 기록 목록이 여기에 동적으로 추가됩니다. -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>🌿 우리말을 사랑하는 마음으로 &copy; 2025</p>
+        </footer>
+    </div>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
